@@ -8,6 +8,6 @@
 from itemadapter import ItemAdapter
 
 
-class Exercicio01Pipeline:
+class AluraScrappingPipeline:
     def process_item(self, item, spider):
         return item

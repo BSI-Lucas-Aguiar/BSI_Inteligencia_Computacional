@@ -6,7 +6,10 @@
 import scrapy
 
 
-class AluraItem(scrapy.Item):
+class AluraScrappingItem(scrapy.Item):
     # define the fields for your item here like:
     # name = scrapy.Field()
+    nome = scrapy.Field()
+    duracao = scrapy.Field()
+
     pass

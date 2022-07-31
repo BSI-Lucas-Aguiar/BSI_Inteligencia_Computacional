@@ -1,4 +1,4 @@
-# Scrapy settings for alura project
+# Scrapy settings for alura_scrapping project
 #
 # For simplicity, this file contains only settings considered important or
 # commonly used. You can find more settings consulting the documentation:
@@ -7,15 +7,15 @@
 #     https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 #     https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 
-BOT_NAME = 'alura'
+BOT_NAME = 'alura_scrapping'
 
-SPIDER_MODULES = ['alura.spiders']
-NEWSPIDER_MODULE = 'alura.spiders'
+SPIDER_MODULES = ['alura_scrapping.spiders']
+NEWSPIDER_MODULE = 'alura_scrapping.spiders'
 
-USER_AGENT = 'APIs-Google (+https://developers.google.com/webmasters/APIs-Google.html)'
+USER_AGENT = 'Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)'
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
-#USER_AGENT = 'alura (+http://www.yourdomain.com)'
+#USER_AGENT = 'alura_scrapping (+http://www.yourdomain.com)'
 
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = True
@@ -46,13 +46,13 @@ ROBOTSTXT_OBEY = True
 # Enable or disable spider middlewares
 # See https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 #SPIDER_MIDDLEWARES = {
-#    'alura.middlewares.AluraSpiderMiddleware': 543,
+#    'alura_scrapping.middlewares.AluraScrappingSpiderMiddleware': 543,
 #}
 
 # Enable or disable downloader middlewares
 # See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 #DOWNLOADER_MIDDLEWARES = {
-#    'alura.middlewares.AluraDownloaderMiddleware': 543,
+#    'alura_scrapping.middlewares.AluraScrappingDownloaderMiddleware': 543,
 #}
 
 # Enable or disable extensions
@@ -64,7 +64,7 @@ ROBOTSTXT_OBEY = True
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
 #ITEM_PIPELINES = {
-#    'alura.pipelines.AluraPipeline': 300,
+#    'alura_scrapping.pipelines.AluraScrappingPipeline': 300,
 #}
 
 # Enable and configure the AutoThrottle extension (disabled by default)

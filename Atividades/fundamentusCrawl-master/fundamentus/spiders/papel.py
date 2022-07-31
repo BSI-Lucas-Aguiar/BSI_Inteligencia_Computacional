@@ -3,32 +3,24 @@ import scrapy
 
 class PapelSpider(scrapy.Spider):
     name = 'papel'
-    start_url = 'http://www.fundamentus.com.br/'
-    start_urls = [start_url+'detalhes.php/']
+    start_url = 'https://www.alura.com.br/'
+    start_urls = [start_url+'cursos-online-programacao/']
     headers = {'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64; rv:48.0) Gecko/20100101 Firefox/48.0'}
 
     def start_requests(self):
 
         for url in self.start_urls:
             yield scrapy.Request(url, headers=self.headers)
+
     def parse(self, response): 
+        SELECTOR = ".subcategoria_item"
+        #cursos = []
+        for categoria in response.css(SELECTOR):
+            curso = {}
 
-        funds = response.xpath('//*[@id="test1"]/tbody/tr')
-        for papel in funds:
-            url = self.start_url+papel.xpath('.//a/@href').extract_first()
-            #print(url)
-            yield scrapy.Request(url=url, headers=self.headers, callback=self.parse_detail)
+            NOME_SELECTOR = ".card-curso__nome"
 
-    def parse_detail(self, response):
+            curso["Nome"] = categoria.css(NOME_SELECTOR).extract_first()
+            print(curso)
+            #cursos.append(curso)
 
-        papel = response.xpath('/html/body/div[1]/div[2]/table[1]/tr[1]/td[2]/span/text()').extract_first()
-        nome = response.xpath('/html/body/div[1]/div[2]/table[1]/tr[3]/td[2]/span/text()').extract_first()
-        cotacao  = response.xpath('/html/body/div[1]/div[2]/table[1]/tr[1]/td[4]/span/text()').extract_first()
-                                
-        #print(title)
-        yield {
-            'papel': papel,
-            'nome': nome,
-            'cotacao': cotacao
-            
-        }
